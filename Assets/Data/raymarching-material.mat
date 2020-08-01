@@ -64,24 +64,33 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _A: 0.3
     - _AA: 2.69
+    - _B: 0.7
     - _BorderWidth: 0.5
     - _BumpScale: 1
+    - _C: 0.8
     - _Cutoff: 0.5
+    - _D: 0.2
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _E: 0.3
+    - _F: 7.5
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _HeightFactor: 0.005
     - _MagicFactor: 0.6
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SinAmplitude: 0.3
+    - _SinFreq: 3
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _TimeSpeed: 0.25
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:

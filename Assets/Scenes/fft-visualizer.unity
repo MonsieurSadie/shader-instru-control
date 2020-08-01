@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -310,6 +311,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderMat: {fileID: 2100000, guid: 16c647984c9654d43b9e8d468e7227e2, type: 2}
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 110f48b714672c84da2f8fae8f60ca5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderBindings:
+  - variableName: _TimeSpeed
+    startFreq: 200
+    endFreq: 400
+    minVal: 0.25
+    maxVal: 1
+    lerpTime: 0.1
+  - variableName: _BorderWidth
+    startFreq: 400
+    endFreq: 500
+    minVal: 0.5
+    maxVal: 4
+    lerpTime: 0.2
+  - variableName: _SinAmplitude
+    startFreq: 500
+    endFreq: 600
+    minVal: 0.3
+    maxVal: 2
+    lerpTime: 0.1
+  - variableName: _HeightFactor
+    startFreq: 600
+    endFreq: 800
+    minVal: 0.005
+    maxVal: 0.2
+    lerpTime: 0.1
 --- !u!1 &1603896865
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,6 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barMaxHeight: 10000
+  threshold: 0.01
 --- !u!82 &1603896867
 AudioSource:
   m_ObjectHideFlags: 0

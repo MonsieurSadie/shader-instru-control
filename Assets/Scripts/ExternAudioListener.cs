@@ -8,9 +8,11 @@ public class ExternAudioListener : MonoBehaviour
   AudioSource source;
   AudioClip microphoneClip;
 
-  const int numFreqBands = 512;
+  const int numFreqBands = 2048;
+  float bandwidth;
   float[] spectrumData = new float[numFreqBands];
   public float barMaxHeight = 300;
+  public float threshold = 0.5f;
 
   void Awake()
   {
@@ -25,12 +27,47 @@ public class ExternAudioListener : MonoBehaviour
     microphoneClip = Microphone.Start(devices[0], true, 10, 44100);
     source.clip = microphoneClip;
     source.Play();
+
+    // compute width of each band (in Hz)
+    bandwidth = 44100.0f / numFreqBands;
+    Debug.LogFormat("bandwidth is {0}", bandwidth);
   }
 
   void Update()
   {
-    source.GetSpectrumData(spectrumData, 0, FFTWindow.Rectangular);
+    source.GetSpectrumData(spectrumData, 0, FFTWindow.BlackmanHarris);
   }
+
+  // given a band interval (in Hz), returns the index of the band with max value inside it
+  public int max(float min, float max)
+  {
+    int minIndex = Mathf.FloorToInt(min/bandwidth);
+    int maxIndex = Mathf.FloorToInt(max/bandwidth);
+    // Debug.LogFormat("looking for max in [{0}-{1}]", minIndex, maxIndex);
+    float maxval = spectrumData[minIndex];
+    int maxIndx = 0;
+    for (int i = minIndex+1; i < maxIndex; i++)
+    {
+      if(spectrumData[i] > maxval)
+      {
+        maxval = spectrumData[i];
+        maxIndx = i;
+      }
+    } 
+    return maxIndx;
+  }
+
+  public float val(int binIndex)
+  {
+    return spectrumData[binIndex];
+  }
+
+  public float getBinFreq(int binIdx)
+  {
+    return binIdx * bandwidth;
+  }
+
+
 
   void OnGUI()
   {
@@ -44,5 +81,14 @@ public class ExternAudioListener : MonoBehaviour
       Rect rect = new Rect(i*freqBarWidth, Screen.height - freqBarHeight, freqBarWidth, freqBarHeight);
       GUI.DrawTexture(rect, Texture2D.whiteTexture);
     }
+
+    int thresholdHeight = (int)(threshold * barMaxHeight);
+    Rect r = new Rect(0, Screen.height-thresholdHeight, Screen.width, 5);
+    GUI.DrawTexture(r, Texture2D.whiteTexture);
+
+    GUI.skin.label.fontSize = 30;
+    GUI.skin.label.fontStyle = FontStyle.Bold;
+    GUI.contentColor = Color.yellow;
+    GUILayout.Label(getBinFreq(max(0,22000)).ToString("0.0"));
   }
 }
