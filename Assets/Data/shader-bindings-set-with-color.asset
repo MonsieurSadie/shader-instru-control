@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b078b97da54454bb1a90a0d845e6ad, type: 3}
+  m_Name: shader-bindings-set-with-color
+  m_EditorClassIdentifier: 
+  bindings:
+  - variableName: _TimeSpeed
+    startFreq: 300
+    endFreq: 360
+    minVal: 0.25
+    maxVal: 1
+    lerpTime: 1
+  - variableName: _BorderWidth
+    startFreq: 500
+    endFreq: 550
+    minVal: 0.5
+    maxVal: 4
+    lerpTime: 1
+  - variableName: _HeightFactor
+    startFreq: 600
+    endFreq: 640
+    minVal: 0.005
+    maxVal: 2
+    lerpTime: 1
+  - variableName: _SinAmplitude
+    startFreq: 480
+    endFreq: 520
+    minVal: 0.3
+    maxVal: 5
+    lerpTime: 1
+  - variableName: _ColInitializer_R
+    startFreq: 700
+    endFreq: 740
+    minVal: 0.1
+    maxVal: 1
+    lerpTime: 1
+  - variableName: _ColInitializer_G
+    startFreq: 800
+    endFreq: 850
+    minVal: 0.1
+    maxVal: 1
+    lerpTime: 1
+  - variableName: _ColInitializer_B
+    startFreq: 900
+    endFreq: 950
+    minVal: 0.1
+    maxVal: 1
+    lerpTime: 1

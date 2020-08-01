@@ -323,31 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110f48b714672c84da2f8fae8f60ca5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shaderBindings:
-  - variableName: _TimeSpeed
-    startFreq: 200
-    endFreq: 400
-    minVal: 0.25
-    maxVal: 1
-    lerpTime: 0.1
-  - variableName: _BorderWidth
-    startFreq: 400
-    endFreq: 500
-    minVal: 0.5
-    maxVal: 4
-    lerpTime: 0.2
-  - variableName: _SinAmplitude
-    startFreq: 500
-    endFreq: 600
-    minVal: 0.3
-    maxVal: 2
-    lerpTime: 0.1
-  - variableName: _HeightFactor
-    startFreq: 600
-    endFreq: 800
-    minVal: 0.005
-    maxVal: 0.2
-    lerpTime: 0.1
+  bindingSet: {fileID: 11400000, guid: 9818db2db0844024cbc917a9b0db3fd9, type: 2}
 --- !u!1 &1603896865
 GameObject:
   m_ObjectHideFlags: 0

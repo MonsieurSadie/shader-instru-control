@@ -67,6 +67,20 @@ public class ExternAudioListener : MonoBehaviour
     return binIdx * bandwidth;
   }
 
+  public float getBandRangeAverage(float startBand, float endBand)
+  {
+    int startIndex = Mathf.FloorToInt(startBand/bandwidth);
+    int endIndex = Mathf.FloorToInt(endBand/bandwidth);
+    float val = 0;
+    for (int i = startIndex; i < endIndex; i++)
+    {
+      val += spectrumData[i];
+    }
+    val /= (endIndex-startIndex);
+
+    return val;
+  }
+
 
 
   void OnGUI()
@@ -89,6 +103,9 @@ public class ExternAudioListener : MonoBehaviour
     GUI.skin.label.fontSize = 30;
     GUI.skin.label.fontStyle = FontStyle.Bold;
     GUI.contentColor = Color.yellow;
+    GUILayout.BeginHorizontal();
     GUILayout.Label(getBinFreq(max(0,22000)).ToString("0.0"));
+    GUILayout.Label(" : " + val(max(0,22000)).ToString("0.000"));
+    GUILayout.EndHorizontal();
   }
 }
