@@ -17,8 +17,8 @@ MonoBehaviour:
     startFreq: 300
     endFreq: 360
     minVal: 0.25
-    maxVal: 1
-    lerpTime: 1
+    maxVal: 0.5
+    lerpTime: 5
   - variableName: _BorderWidth
     startFreq: 500
     endFreq: 550
